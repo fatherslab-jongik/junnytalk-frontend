@@ -3,7 +3,7 @@ import React, { FormEvent, useState } from 'react'
 import { Provider } from 'react-redux';
 
 import "./App.css";
-import Counter from './pages/counter';
+import Counter from './components/pages/Counter/counter';
 import store from './store';
 
 const App: React.FC = () => {

@@ -1,13 +1,14 @@
 import React from "react";
 // import "./App.css";
-import { counterActions } from "../reducer/counter";
-import { useAppDispatch, useAppSelector } from "../hooks/index";
+import { counterActions } from "../../../reducer/counter";
+import { useAppDispatch, useAppSelector } from "../../../hooks/index";
+import Button from "../../atoms/button";
 
 interface Props {
   numFromProps: number;
 }
 
-const Counter = ({ props }: any) => {
+const Counter = (props: any) => {
   /* 필요한 State 불러오기 */
   const { value } = useAppSelector((state) => state.counter);
   const dispatch = useAppDispatch();
@@ -15,10 +16,10 @@ const Counter = ({ props }: any) => {
   /*
     Function 모음
   */
-  const onClickIncrement = () => {
+  const onClickIncrement = (e:React.MouseEvent<HTMLButtonElement>) => {
     dispatch(counterActions.onIncrement());
   };
-  const onClickDecrement = () => {
+  const onClickDecrement = (e:React.MouseEvent<HTMLButtonElement>) => {
     dispatch(counterActions.onDecrement());
   };
 
@@ -38,12 +39,13 @@ const Counter = ({ props }: any) => {
           {value}
         </div>
         <div className="Centered-flex" style={{ flexDirection: "column" }}>
-          <div className="Counter-Button" onClick={onClickIncrement}>
-            +
-          </div>
-          <div className="Counter-Button" onClick={onClickDecrement}>
-            -
-          </div>
+
+          <Button styleClass="normal" text='+' onClick={onClickIncrement}>
+            
+          </Button>
+          <Button styleClass="big" text='-' onClick={onClickDecrement}>
+            
+          </Button>
         </div>
       </div>
     </div>
